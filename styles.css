@@ -1,0 +1,56 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: rgb(141,201,247);
+    background: linear-gradient(0deg, rgba(141,201,247,1) 0%, rgba(0,187,255,1) 35%, rgba(0,157,219,1) 100%); 
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    color: white;
+}
+
+header > h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.searchform {
+    display: flex;
+}
+
+
+
+.searchform > input[type="text"] {
+    appearance: none;
+    background: none;
+    border: 1px solid black;
+    min-width: 200px;
+    font-size: 16px;
+    padding: 0px 8px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.searchform > input[type="text"]:focus {
+    appearance: none;
+    outline: 0;
+    border: 0;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

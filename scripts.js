@@ -26,6 +26,5 @@ const weather = async ( location ) => {
     const weatherTemperature = await Math.floor(parseFloat(weatherData.main.temp));
     const weatherLocation = await weatherData.name;
     para.textContent = `The temperature in ${await weatherLocation}, ${await weatherData.sys.country} is ${await weatherTemperature}°C`
-    console.log( await weatherData )
 }
 

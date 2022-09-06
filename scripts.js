@@ -11,7 +11,9 @@ const getWeather = async ( location ) => {
 
 const cityInput = document.querySelector('input');
 const searchButton = document.querySelector('button');
-const para = document.querySelector('p');
+const cityParagraph = document.querySelector('.city-name');
+const temperatureParagraph = document.querySelector('.current-temperature');
+const minMaxTempParagraph = document.querySelector('.min-max-temp')
 
 searchButton.addEventListener('click', () => {
     if(cityInput.value === ""){
@@ -23,8 +25,16 @@ searchButton.addEventListener('click', () => {
 
 const weather = async ( location ) => {
     const weatherData = await getWeather(location);
-    const weatherTemperature = await Math.floor(parseFloat(weatherData.main.temp));
+    const weatherTemperature = await roundTemp(weatherData.main.temp);
     const weatherLocation = await weatherData.name;
-    para.textContent = `The temperature in ${await weatherLocation}, ${await weatherData.sys.country} is ${await weatherTemperature}°C`
+
+
+
+    cityParagraph.textContent = `${await weatherLocation}, ${await weatherData.sys.country}`;
+    temperatureParagraph.textContent = `${weatherTemperature}°C`;
+    minMaxTempParagraph.textContent = `Min: ${await roundTemp(weatherData.main.temp_min)}°C | Max: ${await roundTemp(weatherData.main.temp_max)}°C`
 }
 
+const roundTemp = (temperature) => {
+    return Math.floor(parseFloat(temperature));
+}

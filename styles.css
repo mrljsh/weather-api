@@ -29,26 +29,60 @@ header > h1 {
 
 .searchform {
     display: flex;
+    position: relative;
 }
 
 
 
-.searchform > input[type="text"] {
+.city-input {
     appearance: none;
     background: none;
-    border: 1px solid black;
-    min-width: 200px;
+    border: 0;
+    max-width: 200px;
     font-size: 16px;
     padding: 0px 8px;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    position: relative;
+}
+
+.searchform::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+	left: 0;
+    right: 0;
+    bottom: -1px; 
+    background: silver;
+    display: inline-block;
+    transition: 0.4s;
 }
 
 .searchform > input[type="text"]:focus {
     appearance: none;
     outline: 0;
     border: 0;
+}
+
+.searchform:focus-within::after {
+    width: 100%;
+    background: white;
+    height: 2px;
+    transition: 0.7s;
+}
+
+.searchform > input[type="text"]::placeholder {
+    color:azure;
+}
+
+.searchform > button {
+    appearance: none;
+    border: 0;
+    background: none;
+    color: white;
 }
 
 main {
